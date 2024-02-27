@@ -1,4 +1,4 @@
-package bngdev.credit.application.system.dto
+package bngdev.credit.application.system.dto.response
 
 import bngdev.credit.application.system.entity.Customer
 import java.math.BigDecimal

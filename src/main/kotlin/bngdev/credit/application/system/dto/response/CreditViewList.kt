@@ -1,4 +1,4 @@
-package bngdev.credit.application.system.dto
+package bngdev.credit.application.system.dto.response
 
 import bngdev.credit.application.system.entity.Credit
 import java.math.BigDecimal
@@ -12,6 +12,6 @@ data class CreditViewList(
     constructor(credit: Credit) : this(
         creditCode = credit.creditCode,
         creditValue = credit.creditValue,
-        numberOfInstallments = credit.numberOfInstalments
+        numberOfInstallments = credit.numberOfInstallments
     )
 }

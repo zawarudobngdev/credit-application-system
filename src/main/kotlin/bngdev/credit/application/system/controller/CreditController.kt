@@ -1,10 +1,11 @@
 package bngdev.credit.application.system.controller
 
-import bngdev.credit.application.system.dto.CreditDto
-import bngdev.credit.application.system.dto.CreditView
-import bngdev.credit.application.system.dto.CreditViewList
+import bngdev.credit.application.system.dto.request.CreditDto
+import bngdev.credit.application.system.dto.response.CreditView
+import bngdev.credit.application.system.dto.response.CreditViewList
 import bngdev.credit.application.system.entity.Credit
 import bngdev.credit.application.system.service.impl.CreditService
+import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -22,7 +23,7 @@ import java.util.stream.Collectors
 class CreditController(private val creditService: CreditService) {
 
     @PostMapping
-    fun saveCredit(@RequestBody creditDto: CreditDto): ResponseEntity<String> {
+    fun saveCredit(@RequestBody @Valid creditDto: CreditDto): ResponseEntity<String> {
         val credit: Credit = this.creditService.save(creditDto.toEntity())
         return ResponseEntity.status(HttpStatus.CREATED)
             .body("Credit ${credit.creditCode} to Customer ${credit.customer?.firstName} created!")

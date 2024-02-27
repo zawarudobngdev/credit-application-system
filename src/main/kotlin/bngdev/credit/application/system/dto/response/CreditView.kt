@@ -1,4 +1,4 @@
-package bngdev.credit.application.system.dto
+package bngdev.credit.application.system.dto.response
 
 import bngdev.credit.application.system.entity.Credit
 import bngdev.credit.application.system.enums.Status
@@ -16,7 +16,7 @@ data class CreditView(
     constructor(credit: Credit): this(
         creditCode = credit.creditCode,
         creditValue = credit.creditValue,
-        numberOfInstallments = credit.numberOfInstalments,
+        numberOfInstallments = credit.numberOfInstallments,
         status = credit.status,
         emailCustomer = credit.customer?.email,
         incomeCustomer = credit.customer?.income
